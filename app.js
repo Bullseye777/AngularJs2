@@ -1,9 +1,9 @@
 /**
  * Created by DELL on 2017.03.21.
  */
-var app = angular.module('myApp', ['ngRoute']);
+var myApp = angular.module("myApp", ['ngRoute']);
 
-app.config(function ($routeProvider,$locationProvider) {
+myApp.config(function ($routeProvider,$locationProvider) {
     $routeProvider
 
         .when ('/', {
@@ -28,19 +28,19 @@ app.config(function ($routeProvider,$locationProvider) {
 
 });
 
-app.controller('HomeController', function ($scope){
+myApp.controller('HomeController', function ($scope){
     $scope.message = 'Hello from HomeController';
 
 });
-app.controller('PirmadienisController', function ($scope){
+myApp.controller('PirmadienisController', function ($scope){
     $scope.message = 'Hello from PirmadienisController';
 
 });
-app.controller('AntradienisController', function ($scope){
+myApp.controller('AntradienisController', function ($scope){
     $scope.message = 'Hello from AntradienisController';
 
 });
-app.controller('TreciadienisController', function ($scope){
+myApp.controller('TreciadienisController', function ($scope){
     $scope.message = 'Hello from TreciadienisController';
 
 });
