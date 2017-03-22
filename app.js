@@ -22,6 +22,14 @@ myApp.config(function ($routeProvider,$locationProvider) {
             templateUrl : 'pages/treciadienis.html',
             controller : 'TreciadienisController'
         })
+        .when('/ketvirtadienis', {
+            templateUrl : 'pages/ketvirtadienis.html',
+            controller : 'KetvirtadienisController'
+        })
+        .when('/penktadienis', {
+            templateUrl : 'pages/penktadienis.html',
+            controller : 'PenktadienisController'
+        })
         .otherwise({redirectTo: '/'});
     $locationProvider.html5Mode(true);
 
@@ -42,6 +50,14 @@ myApp.controller('AntradienisController', function ($scope){
 });
 myApp.controller('TreciadienisController', function ($scope){
     $scope.message = 'Hello from TreciadienisController';
+
+});
+myApp.controller('KetvirtadienisController', function ($scope){
+    $scope.message = 'Hello from KetvirtadienisController';
+
+});
+myApp.controller('PenktadienisController', function ($scope){
+    $scope.message = 'Hello from PenktadienisController';
 
 });
 

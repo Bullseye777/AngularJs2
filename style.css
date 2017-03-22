@@ -63,7 +63,10 @@ nav a:last-child{
 nav.home .home,
 nav.pirmadienis .pirmadienis,
 nav.antradienis .antradienis,
-nav.treciadienis .treciadienis{
+nav.treciadienis .treciadienis
+nav ketvirtadienis.ketvirtadienis
+nav.penktadienis .penktadienis
+{
     background-color: brown;
 }
 
