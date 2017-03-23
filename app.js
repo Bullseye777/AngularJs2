@@ -18,18 +18,20 @@ myApp.config(function ($routeProvider,$locationProvider) {
             templateUrl : 'pages/antradienis.html',
             controller : 'AntradienisController'
         })
-        .when('/treciadienis', {
-            templateUrl : 'pages/treciadienis.html',
+        .when('/treciadienis' , {
+            templateUrl :'pages/treciadienis.html' ,
             controller : 'TreciadienisController'
+
         })
-        .when('/ketvirtadienis', {
-            templateUrl : 'pages/ketvirtadienis.html',
+        .when('/ketvirtadienis' , {
+            templateUrl : 'pages/ketvirtadienis.html' ,
             controller : 'KetvirtadienisController'
         })
-        .when('/penktadienis', {
-            templateUrl : 'pages/penktadienis.html',
-            controller : 'PenktadienisController'
+        .when('/penktadienis' , {
+           templateUrl : 'pages/penktadienis.html' ,
+           controller : 'PenktadienisController'
         })
+
         .otherwise({redirectTo: '/'});
     $locationProvider.html5Mode(true);
 
