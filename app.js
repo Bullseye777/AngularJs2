@@ -1,5 +1,5 @@
 /**
- * Created by DELL on 2017.03.21.
+ * Created by A on 2017.03.21.
  */
 var myApp = angular.module("myApp", ['ngRoute']);
 
