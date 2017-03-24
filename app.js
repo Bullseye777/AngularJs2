@@ -42,10 +42,7 @@ myApp.controller('HomeController', function ($scope){
     $scope.message = 'Hello from HomeController';
 
 });
-myApp.controller('PirmadienisController', function ($scope, $http){
-    // $scope.message = 'Hello from PirmadienisController';
 
-});
 myApp.controller('AntradienisController', function ($scope){
     $scope.message = 'Hello from AntradienisController';
 
