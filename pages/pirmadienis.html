@@ -3,22 +3,25 @@
 <h3>{{message}}</h3>
 <span>{{status}}</span>
 
-<div ng-repeat="item in meniu">
-    {{item.pavadinimas}}<br/>
-    {{item.kaina}}<br/>
-    {{item.grupe}}<br/>
+<div>
+    <div ng-repeat="item in pmc.meniu">
+        {{item.pavadinimas}}<br/>
+        {{item.kaina}}<br/>
+        {{item.grupe}}<br/>
+    </div>
 </div>
 
 <form action="/insertas.php">
-    Pavadinimas:<br>
-    <input type="text" name="pavadinimas" value="">
+
+    <label for="pavadinimas1">Pavadinimas</label>
+    <input type="text" name="pavadinimas" id="pavadinimas1" value=""/>
     <br>
     Kaina:<br>
-    <input type="text" name="kaina" value="Mouse">
+    <input type="text" name="kaina" value="Mouse"/>
     Grupe:<br>
-    <input type="text" name="kaina" value="Mouse">
+    <input type="text" name="kaina" value="Mouse"/>
     Grupe:<br>
-    <input type="text" name="kaina" value="Mouse">
+    <input type="text" name="kaina" value="Mouse"/>
 
     <!--<br>Eilute<br>-->
     <!--<textarea name="=Eilute"></textarea>-->

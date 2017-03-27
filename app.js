@@ -12,7 +12,8 @@ myApp.config(function ($routeProvider, $locationProvider) {
         })
         .when('/pirmadienis', {
             templateUrl: 'pages/pirmadienis.html',
-            controller: 'PirmadienisController'
+            controller: 'PirmadienisController',
+            controllerAs: 'pmc'
         })
         .when('/antradienis', {
             templateUrl: 'pages/antradienis.html',
@@ -43,55 +44,57 @@ myApp.controller('HomeController', function ($scope) {
 
 });
 
-myApp.controller('customersController', ['$scope', 'dataFactory',
-    function ($scope, dataFactory)  {
-        $scope.message = 'Hello from Pirmadienis Controller';
-        $scope.status;
-        $scope.meniu;
+myApp.controller('PirmadienisController', PirmadienisController);
 
-        getMeniu();
+function PirmadienisController(dataFactory) {
+    var vm = this;
+    vm.message = 'Hello from Pirmadienis Controller';
+    vm.status = null;
+    vm.meniu = null;
 
-        function getMeniu() {
-            dataFactory.getMeniu()
-                .then(function (response) {
-                    $scope.meniu = response.data;
-                }, function (error) {
-                    $scope.status = 'Unable to load customer data: ' + error.message;
-                });
-        }
-        //
-        // $scope.insertMeniu = function () {
-        //     //Fake customer data
-        //     var cust = {
-        //         ID: 10,
-        //         FirstName: 'JoJo',
-        //         LastName: 'Pikidily'
-        //     };
-        //     dataFactory.insertMeniu(cust)
-        //         .then(function (response) {
-        //             $scope.status = 'Inserted Customer! Refreshing customer list.';
-        //             $scope.meniu.push(cust);
-        //         }, function(error) {
-        //             $scope.status = 'Unable to insert customer: ' + error.message;
-        //         });
-        // };
-        //
-        // $scope.deleteMeniu = function () {
-        //     //Fake customer data
-        //     var cust = {
-        //         ID: 10,
-        //         FirstName: 'JoJo',
-        //         LastName: 'Pikidily'
-        //     };
-        //     dataFactory.insertMeniu(cust)
-        //         .then(function (response) {
-        //             $scope.status = 'Inserted Customer! Refreshing customer list.';
-        //             $scope.meniu.push(cust);
-        //         }, function(error) {
-        //             $scope.status = 'Unable to insert customer: ' + error.message;
-        //         });
-        // };
-});
+    getMeniu();
+
+    function getMeniu() {
+        dataFactory.getMeniu()
+            .then(function (response) {
+                vm.meniu = response.data;
+            }, function (error) {
+                vm.status = 'Unable to load customer data: ' + error.message;
+            });
+    }
+
+    vm.insertMeniu = function () {
+        //Fake customer data
+        var cust = {
+            ID: 10,
+            FirstName: 'JoJo',
+            LastName: 'Pikidily'
+        };
+        dataFactory.insertMeniu(cust)
+            .then(function (response) {
+                vm.status = 'Inserted Customer! Refreshing customer list.';
+                $scope.meniu.push(cust);
+            }, function(error) {
+                vm.status = 'Unable to insert customer: ' + error.message;
+            });
+    };
+
+    vm.deleteMeniu = function () {
+        //Fake customer data
+        var cust = {
+            ID: 10,
+            FirstName: 'JoJo',
+            LastName: 'Pikidily'
+        };
+        dataFactory.insertMeniu(cust)
+            .then(function (response) {
+                vm.status = 'Inserted Customer! Refreshing customer list.';
+                vm.meniu.push(cust);
+            }, function(error) {
+                vm.status = 'Unable to insert customer: ' + error.message;
+            });
+    };
+}
 
 myApp.controller('AntradienisController', function ($scope) {
     $scope.message = 'Hello from AntradienisController';
@@ -116,11 +119,11 @@ myApp.service('dataFactory', ['$http', function ($http) {
 
 
     this.getMeniu = function () {
-        return $http.get(urlBase + '/Atvaizdavimas.php' );
+        return $http.get(urlBase + '/Atvaizdavimas.php');
     };
 
     this.insertMeniu = function (cust) {
-        return $http.post(urlBase +'/insertas.php', cust);
+        return $http.post(urlBase + '/insertas.php', cust);
     };
 
     // this.updateCustomer = function (cust) {
