@@ -1,8 +1,15 @@
 <!--<h1>Pirmadienis</h1>-->
 
-<!--<h3>{{message}}</h3>-->
+<h3>{{message}}</h3>
+<span>{{status}}</span>
 
-<form action="C:\Users\A\PhpstormProjects\Connectionas\insertas.php">
+<div ng-repeat="item in meniu">
+    {{item.pavadinimas}}<br/>
+    {{item.kaina}}<br/>
+    {{item.grupe}}<br/>
+</div>
+
+<form action="/insertas.php">
     Pavadinimas:<br>
     <input type="text" name="pavadinimas" value="">
     <br>

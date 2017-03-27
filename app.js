@@ -42,9 +42,55 @@ myApp.controller('HomeController', function ($scope) {
     $scope.message = 'Hello from HomeController';
 
 });
-myApp.controller('PirmadienisController', function ($scope) {
-    $scope.message = 'Hello from PirmadienisController';
 
+myApp.controller('customersController', ['$scope', 'dataFactory',
+    function ($scope, dataFactory)  {
+        $scope.message = 'Hello from Pirmadienis Controller';
+        $scope.status;
+        $scope.meniu;
+
+        getMeniu();
+
+        function getMeniu() {
+            dataFactory.getMeniu()
+                .then(function (response) {
+                    $scope.meniu = response.data;
+                }, function (error) {
+                    $scope.status = 'Unable to load customer data: ' + error.message;
+                });
+        }
+        //
+        // $scope.insertMeniu = function () {
+        //     //Fake customer data
+        //     var cust = {
+        //         ID: 10,
+        //         FirstName: 'JoJo',
+        //         LastName: 'Pikidily'
+        //     };
+        //     dataFactory.insertMeniu(cust)
+        //         .then(function (response) {
+        //             $scope.status = 'Inserted Customer! Refreshing customer list.';
+        //             $scope.meniu.push(cust);
+        //         }, function(error) {
+        //             $scope.status = 'Unable to insert customer: ' + error.message;
+        //         });
+        // };
+        //
+        // $scope.deleteMeniu = function () {
+        //     //Fake customer data
+        //     var cust = {
+        //         ID: 10,
+        //         FirstName: 'JoJo',
+        //         LastName: 'Pikidily'
+        //     };
+        //     dataFactory.insertMeniu(cust)
+        //         .then(function (response) {
+        //             $scope.status = 'Inserted Customer! Refreshing customer list.';
+        //             $scope.meniu.push(cust);
+        //         }, function(error) {
+        //             $scope.status = 'Unable to insert customer: ' + error.message;
+        //         });
+        // };
 });
 
 myApp.controller('AntradienisController', function ($scope) {
@@ -64,7 +110,7 @@ myApp.controller('PenktadienisController', function ($scope) {
 
 });
 
-myApp.service('dataService', ['$http', function ($http) {
+myApp.service('dataFactory', ['$http', function ($http) {
 
     var urlBase = 'http://php.app';
 
