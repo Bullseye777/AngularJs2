@@ -8,23 +8,34 @@
         {{item.pavadinimas}}<br/>
         {{item.kaina}}<br/>
         {{item.grupe}}<br/>
+        {{item.diena}}<br/>
+
     </div>
 </div>
 
-<form action="/insertas.php">
+<form action="/Connectionas/insertas.php">
 
     <label for="pavadinimas1">Pavadinimas</label>
     <input type="text" name="pavadinimas" id="pavadinimas1" value=""/>
-    <br>
-    Kaina:<br>
-    <input type="text" name="kaina" value="Mouse"/>
-    Grupe:<br>
-    <input type="text" name="kaina" value="Mouse"/>
-    Grupe:<br>
-    <input type="text" name="kaina" value="Mouse"/>
+    <label for="kaina">Kaina</label>
+    <input type="text" name="kaina" id="kaina" value=""/>
+    <label for="grupe">Grupe</label>
+    <input type="text" name="grupe" id="grupe" value=""/>
+    <label for="diena">Savaites diena</label>
+    <input type="text" name="diena" id="diena" value=""/>
 
-    <!--<br>Eilute<br>-->
-    <!--<textarea name="=Eilute"></textarea>-->
-    <!--<br><br>-->
-    <input type="submit" value="Vykdyti">
+    <input type="submit" value="Issaugoti nauja">
 </form>
+
+<!--<div ng-app="myApp" ng-controller="PirmadienisController">-->
+
+    <!--<table>-->
+        <!--<tr ng-repeat="x in meniu">-->
+            <!--<td>{{ x.pavadinimas }}</td>-->
+            <!--<td>{{ x.kaina }}</td>-->
+            <!--<td>{{ x.grupe }}</td>-->
+            <!--<td>{{ x.diena }}</td>-->
+        <!--</tr>-->
+    <!--</table>-->
+
+<!--</div>-->

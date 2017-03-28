@@ -3,6 +3,7 @@
  */
 var myApp = angular.module("myApp", ['ngRoute']);
 
+
 myApp.config(function ($routeProvider, $locationProvider) {
     $routeProvider
 
@@ -64,7 +65,7 @@ function PirmadienisController(dataFactory) {
     }
 
     vm.insertMeniu = function () {
-        //Fake customer data
+
         var cust = {
             ID: 10,
             FirstName: 'JoJo',
@@ -73,7 +74,7 @@ function PirmadienisController(dataFactory) {
         dataFactory.insertMeniu(cust)
             .then(function (response) {
                 vm.status = 'Inserted Customer! Refreshing customer list.';
-                $scope.meniu.push(cust);
+                vm.meniu.push(cust);
             }, function(error) {
                 vm.status = 'Unable to insert customer: ' + error.message;
             });
@@ -119,11 +120,11 @@ myApp.service('dataFactory', ['$http', function ($http) {
 
 
     this.getMeniu = function () {
-        return $http.get(urlBase + '/Atvaizdavimas.php');
+        return $http.get(urlBase + '/Connectionas/Atvaizdavimas.php');
     };
 
     this.insertMeniu = function (cust) {
-        return $http.post(urlBase + '/insertas.php', cust);
+        return $http.post(urlBase + '/Connectionas/insertas.php', cust);
     };
 
     // this.updateCustomer = function (cust) {
@@ -131,7 +132,7 @@ myApp.service('dataFactory', ['$http', function ($http) {
     // };
 
     this.deleteMeniu = function (cust) {
-        return $http.post(urlBase + 'deletas.php', cust);
+        return $http.post(urlBase + '/Connectionas/deletas.php', cust);
     };
 
 }]);
