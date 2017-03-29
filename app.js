@@ -49,7 +49,7 @@ myApp.controller('HomeController', function ($scope) {
 
 myApp.controller('PirmadienisController',['dataFactory','$scope',  function (dataFactory, $scope) {
     var vm = $scope;
-    vm.message = 'Hello from Pirmadienis Controller';
+   // vm.message = 'Hello from Pirmadienis Controller';
     vm.status = null;
     vm.meniu = null;
 
