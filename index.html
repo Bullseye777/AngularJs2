@@ -8,6 +8,7 @@
     <script src="lib/angular-route.min.js"></script>
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"/>
     <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
 
 
 </head>
@@ -28,9 +29,8 @@
 
 
 
-<div ng-view></div>
+<div ng-view ng-controller="PirmadienisController as pmc"></div>
 
 
-<script src="app.js"></script>
 </body>
 </html>
