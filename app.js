@@ -19,6 +19,7 @@ myApp.config(function ($routeProvider, $locationProvider) {
         .when('/antradienis', {
             templateUrl: 'pages/pirmadienis.html',
             controller: 'PirmadienisController',
+            controllerAs: 'pmc'
         })
         .when('/treciadienis', {
             templateUrl: 'pages/pirmadienis.html',
@@ -59,7 +60,7 @@ myApp.controller('PirmadienisController',['dataFactory','$scope',  function (dat
             .then(function (response) {
                 vm.meniu = response.data;
             }, function (error) {
-                vm.status = 'Unable to load data: ' + error.message;
+                vm.message = 'Unable to load data: ' + error.message;
             });
     }
 
