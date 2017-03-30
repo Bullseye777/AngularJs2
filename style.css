@@ -13,10 +13,6 @@ body{
     text-align: center;
 }
 
-a, a:visited{
-    outline: none;
-    color: #389dc1;
-}
 
 a:hover{
     text-decoration: none;
@@ -69,20 +65,4 @@ nav.penktadienis .penktadienis
 
 {
     background-color: brown;
-}
-
-p{
-    font-size: 16px;
-    color:#7d9098;
-}
-
-p b{
-    color:#ffffff;
-    display:inline-block;
-    padding:5px 10px;
-    background-color:#DC64C6;
-    border-radius:2px;size:22px;
-    font-weight:bold;
-    text-transform:uppercase;
-    font-size:18px;
 }

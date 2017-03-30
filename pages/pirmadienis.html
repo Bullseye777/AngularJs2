@@ -2,7 +2,7 @@
 
 <h3>{{message}}</h3>
 <!--<span>{{status}}</span>-->
-
+<link rel="stylesheet" href="lenteles.css">
 
 <form action="/php.app">
 
@@ -10,15 +10,15 @@
     <input type="text" name="pavadinimas" id="pavadinimas" value=""/>
     <label for="kaina">Kaina</label>
     <input type="text" name="kaina" id="kaina" value=""/>
-    <p>Patiekalo grupe</p>
-    <select>
+    <span class="tekstas">Patiekalo grupe</span>
+    <select class="options">
         <option value="sriuba">Sriuba</option>
         <option value="salti">Salti</option>
         <option value="karsti">Karsti</option>
         <option value="kiti">Kiti</option>
     </select>
-    <p>Savaites diena</p>
-    <select>
+    <span>Savaitės dienos</span>
+    <select class="options">
         <option value="1">Pirmadienis</option>
         <option value="2">Antradienis</option>
         <option value="3">Treciadienis</option>
@@ -30,13 +30,13 @@
     <!--<label for="diena">Savaites diena</label>-->
     <!--<input type="text" name="diena" id="diena" value=""/>-->
 
-    <input type="submit" value="Issaugoti nauja">
+    <input class="pridejimas" type="submit" value="+">
 </form>
-<div>
-    <div ng-repeat="item in meniu">
-        {{item.pavadinimas}}<br/>
-        {{item.kaina}}<br/>
-        {{item.grupe}}<br/>
-        {{item.diena}}<br/>
-    </div>
+<div class="tables">
+    <span ng-repeat="item in meniu">
+        {{item.pavadinimas}}
+        {{item.kaina}}
+        {{item.grupe}}
+        {{item.diena}}
+    </span>
 </div>
