@@ -2,7 +2,8 @@
 
 <!--<h3>{{message}}</h3>-->
 <!--<span>{{status}}</span>-->
-
+<link rel="stylesheet" href="lenteles.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <form name="nmeniu">
 
@@ -18,7 +19,7 @@
         <option value="kiti">Kiti</option>
     </select>
     <span>Savaites diena</span>
-    <select ng-model="forma.diena">
+    <select class="options" ng-model="forma.diena">
         <option value="1">Pirmadienis</option>
         <option value="2">Antradienis</option>
         <option value="3">Treciadienis</option>
@@ -29,15 +30,27 @@
     <!--<input type="text" name="grupe" id="grupe" value=""/>-->
     <!--<label for="diena">Savaites diena</label>-->
     <!--<input type="text" name="diena" id="diena" value=""/>-->
-<!--{{forma | json}}-->
-    <input ng-click='insertMeniu()'  type="submit" value="Issaugoti nauja">
-    <div ng-hide="submit" class="ng-hide"></div>
+    <!--{{forma | json}}-->
+    <input class="pridejimas" ng-click='insertMeniu()' type="submit" value="+">
 </form>
-<div>
-    <div ng-repeat="item in meniu">
-        {{item.pavadinimas}}
-        {{item.kaina}}
-        <!--{{item.grupe}}<br/>-->
-        <!--{{item.diena}}<br/>-->
-    </div>
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Patiekalai</th>
+            <th>kaina</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in meniu">
+            <td> {{item.pavadinimas}}<br/></td>
+            <td>{{item.kaina}}<br/></td>
+        </tbody>
+    </table>
+
+
+    <!--{{item.grupe}}<br/>-->
+    <!--{{item.diena}}<br/> -->
+
+    </table>
 </div>
