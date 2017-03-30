@@ -68,8 +68,13 @@
     transition:0.3s ease all;
 
 }
-.tables{
-
+.tables {
+    color: #333;
+    font-family: Helvetica, Arial, sans-serif;
+    width: 640px;
 
 
 }
+
+
+
