@@ -22,7 +22,7 @@ a:hover{
     text-decoration: none;
 }
 
-section, flooter, header, aside, nav{
+section, footer, header, aside, nav{
     display: block;
 }
 
