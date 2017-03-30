@@ -1,24 +1,24 @@
 <!--<h1>Pirmadienis</h1>-->
 
-<h3>{{message}}</h3>
+<!--<h3>{{message}}</h3>-->
 <!--<span>{{status}}</span>-->
 
 
-<form action="/php.app">
+<form name="nmeniu">
 
     <label for="pavadinimas">Pavadinimas</label>
-    <input type="text" name="pavadinimas" id="pavadinimas" value=""/>
+    <input type="text" name="pavadinimas" id="pavadinimas" ng-model="forma.pavadinimas" value=""/>
     <label for="kaina">Kaina</label>
-    <input type="text" name="kaina" id="kaina" value=""/>
-    <p>Patiekalo grupe</p>
-    <select>
+    <input type="text" name="kaina" id="kaina" ng-model="forma.kaina" value="" size="5"/>
+    <span>Patiekalo grupe</span>
+    <select ng-model="forma.grupe">
         <option value="sriuba">Sriuba</option>
         <option value="salti">Salti</option>
         <option value="karsti">Karsti</option>
         <option value="kiti">Kiti</option>
     </select>
-    <p>Savaites diena</p>
-    <select>
+    <span>Savaites diena</span>
+    <select ng-model="forma.diena">
         <option value="1">Pirmadienis</option>
         <option value="2">Antradienis</option>
         <option value="3">Treciadienis</option>
@@ -29,8 +29,8 @@
     <!--<input type="text" name="grupe" id="grupe" value=""/>-->
     <!--<label for="diena">Savaites diena</label>-->
     <!--<input type="text" name="diena" id="diena" value=""/>-->
-
-    <input type="submit" value="Issaugoti nauja">
+<!--{{forma | json}}-->
+    <input ng-click='insertMeniu()'  type="submit" value="Issaugoti nauja">
 </form>
 <div>
     <div ng-repeat="item in meniu">

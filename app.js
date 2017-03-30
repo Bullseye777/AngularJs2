@@ -15,6 +15,8 @@ myApp.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'pages/pirmadienis.html',
             controller: 'PirmadienisController',
             controllerAs: 'pmc'
+
+
         })
         .when('/antradienis', {
             templateUrl: 'pages/pirmadienis.html',
@@ -52,6 +54,7 @@ myApp.controller('PirmadienisController',['dataFactory','$scope',  function (dat
    // vm.message = 'Hello from Pirmadienis Controller';
     vm.status = null;
     vm.meniu = null;
+    $scope.forma= {};
 
     getMeniu();
 
@@ -60,41 +63,37 @@ myApp.controller('PirmadienisController',['dataFactory','$scope',  function (dat
             .then(function (response) {
                 vm.meniu = response.data;
             }, function (error) {
-                vm.message = 'Unable to load data: ' + error.message;
+                vm.message = 'klaida: ' + error.message;
             });
     }
 
-    vm.insertMeniu = function () {
+   $scope.insertMeniu = function () {
 
-        var cust = {
-            ID: 10,
-            FirstName: 'JoJo',
-            LastName: 'Pikidily'
-        };
-        dataFactory.insertMeniu(cust)
+       dataFactory.insertMeniu($scope.forma)
             .then(function (response) {
-                vm.status = 'Inserted Customer! Refreshing customer list.';
-                vm.meniu.push(cust);
-            }, function(error) {
-                vm.status = 'Unable to insert customer: ' + error.message;
+                vm.status = 'Ivestas naujas patieklas';
+                vm.meniu.push(ivestis);
+            }, function (error) {
+                vm.status = 'klaida: ' + error.message;
             });
-    };
+    }
+    //};
 
-    vm.deleteMeniu = function () {
+  //  vm.deleteMeniu = function () {
         //Fake customer data
-        var cust = {
-            ID: 10,
-            FirstName: 'JoJo',
-            LastName: 'Pikidily'
-        };
-        dataFactory.insertMeniu(cust)
-            .then(function (response) {
-                vm.status = 'Inserted Customer! Refreshing customer list.';
-                vm.meniu.push(cust);
-            }, function(error) {
-                vm.status = 'Unable to insert customer: ' + error.message;
-            });
-    };
+    //     var cust = {
+    //         ID: 10,
+    //         FirstName: 'JoJo',
+    //         LastName: 'Pikidily'
+    //     };
+    //     dataFactory.insertMeniu(cust)
+    //         .then(function (response) {
+    //             vm.status = 'Inserted Customer! Refreshing customer list.';
+    //             vm.meniu.push(cust);
+    //         }, function(error) {
+    //             vm.status = 'Unable to insert customer: ' + error.message;
+    //         });
+    // };
 }]);
 
 myApp.service('dataFactory', ['$http', function ($http) {
@@ -114,8 +113,8 @@ myApp.service('dataFactory', ['$http', function ($http) {
     //     return $http.put(urlBase + '/' + cust.ID, cust)
     // };
 
-    this.deleteMeniu = function (cust) {
-        return $http.post(urlBase + '/Connectionas/deletas.php', cust);
-    };
+   // this.deleteMeniu = function (cust) {
+  //      return $http.post(urlBase + '/Connectionas/deletas.php', cust);
+   // };
 
 }]);
