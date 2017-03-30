@@ -11,31 +11,14 @@ myApp.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'pages/home.html',
             controller: 'HomeController'
         })
-        .when('/pirmadienis', {
+        .when('/:ID', {
             templateUrl: 'pages/pirmadienis.html',
             controller: 'PirmadienisController',
-            controllerAs: 'pmc'
+            controllerAs: 'pmc',
 
 
         })
-        .when('/antradienis', {
-            templateUrl: 'pages/pirmadienis.html',
-            controller: 'PirmadienisController',
-            controllerAs: 'pmc'
-        })
-        .when('/treciadienis', {
-            templateUrl: 'pages/pirmadienis.html',
-            controller: 'PirmadienisController',
 
-        })
-        .when('/ketvirtadienis', {
-            templateUrl: 'pages/pirmadienis.html',
-            controller: 'PirmadienisController',
-        })
-        .when('/penktadienis', {
-            templateUrl: 'pages/pirmadienis.html',
-            controller: 'PirmadienisController',
-        })
 
         .otherwise({redirectTo: '/'});
     $locationProvider.html5Mode(true);
@@ -49,17 +32,17 @@ myApp.controller('HomeController', function ($scope) {
 });
 
 
-myApp.controller('PirmadienisController',['dataFactory','$scope',  function (dataFactory, $scope) {
+myApp.controller('PirmadienisController', ['dataFactory', '$scope', '$routeParams', function (dataFactory, $scope, $routeParams) {
     var vm = $scope;
-   // vm.message = 'Hello from Pirmadienis Controller';
+    vm.ID = $routeParams.ID;
     vm.status = null;
     vm.meniu = null;
-    $scope.forma= {};
+    $scope.forma = {};
 
-    getMeniu();
+    getMeniu(vm.ID);
 
-    function getMeniu() {
-        dataFactory.getMeniu()
+    function getMeniu(ID) {
+        dataFactory.getMeniu(ID)
             .then(function (response) {
                 vm.meniu = response.data;
             }, function (error) {
@@ -67,9 +50,9 @@ myApp.controller('PirmadienisController',['dataFactory','$scope',  function (dat
             });
     }
 
-   $scope.insertMeniu = function () {
+    $scope.insertMeniu = function () {
 
-       dataFactory.insertMeniu($scope.forma)
+        dataFactory.insertMeniu($scope.forma)
             .then(function (response) {
                 vm.status = 'Ivestas naujas patieklas';
                 vm.meniu.push(ivestis);
@@ -79,8 +62,8 @@ myApp.controller('PirmadienisController',['dataFactory','$scope',  function (dat
     }
     //};
 
-  //  vm.deleteMeniu = function () {
-        //Fake customer data
+    //  vm.deleteMeniu = function () {
+    //Fake customer data
     //     var cust = {
     //         ID: 10,
     //         FirstName: 'JoJo',
@@ -102,7 +85,7 @@ myApp.service('dataFactory', ['$http', function ($http) {
 
 
     this.getMeniu = function (day) {
-        return $http.get(urlBase + '/Connectionas/Atvaizdavimas.php?day='+day);
+        return $http.get(urlBase + '/Connectionas/Atvaizdavimas.php?day=' + day);
     };
 
     this.insertMeniu = function (cust) {
@@ -113,8 +96,8 @@ myApp.service('dataFactory', ['$http', function ($http) {
     //     return $http.put(urlBase + '/' + cust.ID, cust)
     // };
 
-   // this.deleteMeniu = function (cust) {
-  //      return $http.post(urlBase + '/Connectionas/deletas.php', cust);
-   // };
+    // this.deleteMeniu = function (cust) {
+    //      return $http.post(urlBase + '/Connectionas/deletas.php', cust);
+    // };
 
 }]);
