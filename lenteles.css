@@ -78,6 +78,22 @@
 }
 
 .textas{
-    font-size: 25px;
+    font-size: 20px;
 }
 
+.test {
+    background-color: brown;
+    color: white;
+    font-weight: bold;
+}
+
+th {
+    text-align: center;
+}
+td{
+    width: 30px;
+}
+
+.table {
+
+}

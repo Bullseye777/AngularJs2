@@ -6,7 +6,6 @@
 <link rel="stylesheet" href="../lenteles.css">
 
 
-
 <form name="nmeniu">
     <label for="pavadinimas">Pavadinimas</label>
     <input class="inputas" type="text" name="pavadinimas" id="pavadinimas" ng-model="forma.pavadinimas" value=""/>
@@ -14,14 +13,14 @@
     <input class="inputas" type="text" name="kaina" id="kaina" ng-model="forma.kaina" value="" size="5"/>
     <!--<span>Patiekalo grupe</span>-->
     <select class="options" ng-model="forma.grupe">
-        <option  value="" disabled selected>Pasirinkite Grupę</option>
+        <option value="" disabled selected>Pasirinkite Grupę</option>
         <option value="sriuba">Sriuba</option>
         <option value="salti">Salti</option>
         <option value="karsti">Karsti</option>
         <option value="kiti">Kiti</option>
     </select>
     <select class="options" ng-model="forma.diena">
-        <option  value="" disabled selected>Pasirinkite diena</option>
+        <option value="" disabled selected>Pasirinkite diena</option>
         <option value="1">Pirmadienis</option>
         <option value="2">Antradienis</option>
         <option value="3">Treciadienis</option>
@@ -33,26 +32,29 @@
     <!--<label for="diena">Savaites diena</label>-->
     <!--<input type="text" name="diena" id="diena" value=""/>-->
     <!--{{forma | json}}-->
-    <input  class="pridejimas"   ng-click='insertMeniu()' type="submit" value="+">
+    <input class="pridejimas" ng-click='insertMeniu()' type="submit" value="+">
 </form>
-<div class="container">
-    <table class="table table-bordered table-hover">
-        <thead>
-        <tr class="options">
-            <th>Patiekalai</th>
-            <th>kaina</th>
-        </tr>
-        </thead>
-        <tbody class="textas">
-        <tr ng-repeat="item in meniu">
-            <td> {{item.pavadinimas}}<br/></td>
-            <td>{{item.kaina}} €<br/></td>
-        </tbody>
-    </table>
-
-
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <table class="table table-bordered table-hover table-fixed">
+                <thead>
+                <tr class="options text-center">
+                    <th>Patiekalai</th>
+                    <th>kaina</th>
+                </tr>
+                </thead>
+                <tbody class="textas">
+                <tr ng-repeat="item in meniu">
+                    <td> {{item.pavadinimas}}<br/></td>
+                    <td>{{item.kaina}} €<br/></td>
+                </tbody>
+            </table>
+        </div>
+    </div>
     <!--{{item.grupe}}<br/>-->
     <!--{{item.diena}}<br/> -->
 
     </table>
+</div>
 </div>
