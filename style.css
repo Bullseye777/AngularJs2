@@ -5,17 +5,12 @@
     padding: 0;
 }
 
-/*GENERAL STYLES */
+/*/*GENERAL STYLES */
 
 body{
     font: 15px/1.3 'open Sans', sans-serif;
     color: #5e5b64;
     text-align: center;
-}
-
-
-a:hover{
-    text-decoration: none;
 }
 
 section, footer, header, aside, nav{
@@ -47,6 +42,10 @@ nav a{
     -moz-transition:background-color 0.25s;
     transition:background-color 0.25s;
 }
+/*nav:hover{*/
+    /*color:orange;*/
+
+
 
 nav a:first-child{
     border-radius:2px 0 0 2px;

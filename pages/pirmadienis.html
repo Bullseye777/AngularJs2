@@ -2,23 +2,24 @@
 
 <!--<h3>{{message}}</h3>-->
 <!--<span>{{status}}</span>-->
-<link rel="stylesheet" href="lenteles.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="../lenteles.css">
+
+
 
 <form name="nmeniu">
-
     <label for="pavadinimas">Pavadinimas</label>
-    <input type="text" name="pavadinimas" id="pavadinimas" ng-model="forma.pavadinimas" value=""/>
+    <input class="inputas" type="text" name="pavadinimas" id="pavadinimas" ng-model="forma.pavadinimas" value=""/>
     <label for="kaina">Kaina</label>
-    <input type="text" name="kaina" id="kaina" ng-model="forma.kaina" value="" size="5"/>
-    <span>Patiekalo grupe</span>
-    <select ng-model="forma.grupe">
+    <input class="inputas" type="text" name="kaina" id="kaina" ng-model="forma.kaina" value="" size="5"/>
+    <!--<span>Patiekalo grupe</span>-->
+    <select class="options" ng-model="forma.grupe">
+        <option  value="" disabled selected>Pasirinkite Grupę</option>
         <option value="sriuba">Sriuba</option>
         <option value="salti">Salti</option>
         <option value="karsti">Karsti</option>
         <option value="kiti">Kiti</option>
     </select>
-    <span>Savaites diena</span>
     <select class="options" ng-model="forma.diena">
         <option  value="" disabled selected>Pasirinkite diena</option>
         <option value="1">Pirmadienis</option>
@@ -32,20 +33,20 @@
     <!--<label for="diena">Savaites diena</label>-->
     <!--<input type="text" name="diena" id="diena" value=""/>-->
     <!--{{forma | json}}-->
-    <input class="pridejimas" ng-click='insertMeniu()' type="submit" value="+">
+    <input  class="pridejimas"   ng-click='insertMeniu()' type="submit" value="+">
 </form>
 <div class="container">
-    <table class="table table-bordered">
+    <table class="table table-bordered table-hover">
         <thead>
-        <tr>
+        <tr class="options">
             <th>Patiekalai</th>
             <th>kaina</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody class="textas">
         <tr ng-repeat="item in meniu">
             <td> {{item.pavadinimas}}<br/></td>
-            <td>{{item.kaina}}<br/></td>
+            <td>{{item.kaina}} €<br/></td>
         </tbody>
     </table>
 
